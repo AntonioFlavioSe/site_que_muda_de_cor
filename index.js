@@ -3,9 +3,16 @@
 //Declarando as primeiras variaveis
 const color = ["Red", "Blue", "Yellow", "Purple", "Green"];
 const btn = document.getElementById("btn");
+const colors = document.querySelector(".color");
 
 btn.addEventListener("click", function () {
-  document.body.style.background = color[3];
+  const randomColor = getRandomColor();
+  document.body.style.background = color[randomColor];
+  //console.log(randomColor);
+  colors.textContent = color[randomColor];
 });
 
-//console.log(color);
+//Funcao pra criar numeros randomicos;
+function getRandomColor() {
+  return Math.floor(Math.random() * color.length);
+}
